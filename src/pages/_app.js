@@ -10,6 +10,9 @@ import OverviewPage from "./overview";
 import AuthPage from "./auth";
 import SettingsPage from "./settings";
 import LegalPage from "./legal";
+import CommunityPage from "./community";
+import TradersPage from "./traders";
+import TraderPage from "./trader";
 import { Switch, Route, Router } from "./../util/router";
 import PurchasePage from "./purchase";
 import NotFoundPage from "./404";
@@ -30,8 +33,8 @@ function App(props) {
             <>
               <Navbar
                 color="default"
-                logo="https://uploads.divjoy.com/logo.svg"
-                logoInverted="https://uploads.divjoy.com/logo-white.svg"
+                logo="/dexlogomid.png"
+                logoInverted="/dexlogomid.png"
               />
 
               <Switch>
@@ -48,6 +51,10 @@ function App(props) {
                 <Route exact path="/dashboard" component={DashboardPage} />
 
                 <Route exact path="/overview" component={OverviewPage} />
+
+                <Route exact path="/traders" render={() => <OverviewPage content={<TradersPage/>}/>} />
+                <Route path="/traders/:id" render={() => <OverviewPage content={<TraderPage/>}/>} />
+                <Route exact path="/community" render={() => <OverviewPage content={<CommunityPage/>}/>} />
 
                 <Route exact path="/auth/:type" component={AuthPage} />
 
@@ -71,8 +78,8 @@ function App(props) {
                 bgImageOpacity={1}
                 description="The DEX investing community"
                 copyright={`© ${new Date().getFullYear()} Company`}
-                logo="https://uploads.divjoy.com/logo.svg"
-                logoInverted="https://uploads.divjoy.com/logo-white.svg"
+                logo="/dexlogomid.png"
+                logoInverted="/dexlogomid.png"
                 sticky={true}
               />
             </>

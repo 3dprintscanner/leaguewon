@@ -14,7 +14,7 @@ function IndexPage(props) {
       <HeroSection
         bgColor="primary"
         size="large"
-        bgImage="https://source.unsplash.com/ugnrXk1129g/1600x800"
+        bgImage="/trading.png"
         bgImageOpacity={0.3}
         title="RankDEX"
         subtitle="Find, follow, learn and earn from the best crypto traders on the DEXes"

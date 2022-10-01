@@ -4,10 +4,13 @@ import Paperbase from "./../components/dashboard/paperbase/Paperbase";
 import { requireAuth } from "./../util/auth";
 
 function OverviewPage(props) {
-  return (
+  console.log(props)
+  
+    return (
     <>
       <Meta title="Overview" />
-      <Paperbase/>
+      <Paperbase content={props.content}>
+      </Paperbase>
     </>
   );
 }

@@ -1,0 +1,22 @@
+@keyframes neon4 {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #b6ff00,
+        0 0 70px #b6ff00, 0 0 80px #b6ff00;
+    }
+    to {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #b6ff00,
+        0 0 35px #b6ff00, 0 0 40px #b6ff00;
+    }
+  }
+
+
+  @keyframes neon1 {
+    from {
+      text-shadow: 0 0 10px #bf649e, 0 0 20px #bf649e, 0 0 30px #bf649e, 0 0 40px #bf649e,
+        0 0 70px #f19cd2, 0 0 80px #f19cd2, 0 0 100px #f19cd2, 0 0 150px #f19cd2;
+    }
+    to {
+      text-shadow: 0 0 5px #bf649e, 0 0 10px #bf649e, 0 0 15px #bf649e, 0 0 20px #f19cd2,
+        0 0 35px #f19cd2, 0 0 40px #f19cd2, 0 0 50px #f19cd2, 0 0 75px #f19cd2;
+    }
+  }

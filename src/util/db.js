@@ -30,6 +30,38 @@ export function useUser(uid) {
   );
 }
 
+export function useUsers(){
+  return useQuery(
+    // Unique query key: https://react-query.tanstack.com/guides/query-keys
+    ["users"],
+    // Query function that fetches data
+    () =>
+      supabase
+        .from("users")
+        .select(`*`)
+        .eq("userType", "trader")
+        .then(handle),
+    // Only call query function if we have a `uid`
+    { enabled: true}
+  );
+}
+
+export function usePosts(uid){
+  return useQuery(
+    // Unique query key: https://react-query.tanstack.com/guides/query-keys
+    ["posts", {uid}],
+    // Query function that fetches data
+    () =>
+      supabase
+        .from("posts")
+        .select(`*`)
+        .eq("owner", uid)
+        .then(handle),
+    // Only call query function if we have a `uid`
+    { enabled: true}
+  );
+}
+
 // Fetch user data (non-hook)
 // Useful if you need to fetch data from outside of a component
 export function getUser(uid) {

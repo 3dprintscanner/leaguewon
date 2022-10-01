@@ -1,26 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { createTheme, ThemeProvider, withStyles } from '@material-ui/core/styles';
+import { createTheme, withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
 import Navigator from './Navigator';
 import Content from './Content';
-import Header from './Header';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import {
+  useTheme,
+} from "@material-ui/core/styles";
 
 let theme = createTheme({
   palette: {
@@ -155,7 +142,7 @@ const styles = {
   main: {
     flex: 1,
     padding: theme.spacing(6, 4),
-    background: '#eaeff1',
+    // background: '#eaeff1',
   },
   footer: {
     padding: theme.spacing(2),
@@ -164,9 +151,9 @@ const styles = {
 };
 
 function Paperbase(props) {
-  const { classes } = props;
+  const { classes, content } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
+  const theme = useTheme();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -185,17 +172,14 @@ function Paperbase(props) {
             />
           </Hidden>
           <Hidden xsDown implementation="css">
-            <Navigator PaperProps={{ style: { width: drawerWidth } }} />
+            <Navigator PaperProps={{ style: { width: drawerWidth, backgroundColor: theme.palette.background.default } }} />
           </Hidden>
         </nav>
         <div className={classes.app}>
           {/* <Header onDrawerToggle={handleDrawerToggle} /> */}
           <main className={classes.main}>
-            <Content />
+          {content ? content : <Content/>}
           </main>
-          <footer className={classes.footer}>
-            <Copyright />
-          </footer>
         </div>
       </div>
     // </ThemeProvider>

@@ -6,7 +6,7 @@ import {
 } from "@material-ui/core/styles";
 import * as colors from "@material-ui/core/colors";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+// import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { createLocalStorageStateHook } from "use-local-storage-state";
 
 const themeConfig = {
@@ -124,12 +124,14 @@ const useDarkModeStorage = createLocalStorageStateHook("isDarkMode");
 
 export const ThemeProvider = (props) => {
   // Get system dark mode preference
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)", {
-    noSsr: true,
-  });
+  // const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)", {
+  //   noSsr: true,
+  // });
 
   // Get stored dark mode preference
-  let [isDarkModeStored, setIsDarkModeStored] = useDarkModeStorage();
+  // let [isDarkModeStored, setIsDarkModeStored] = useDarkModeStorage();
+
+  let [setIsDarkModeStored] = useDarkModeStorage();
 
   const isDarkMode = true
   // Use stored dark mode with fallback to system preference

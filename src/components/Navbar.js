@@ -10,8 +10,6 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Divider from "@material-ui/core/Divider";
-import NightsStayIcon from "@material-ui/icons/NightsStay";
-import WbSunnyIcon from "@material-ui/icons/WbSunny";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -24,7 +22,7 @@ import { useDarkMode } from "./../util/theme";
 
 const useStyles = makeStyles((theme) => ({
   logo: {
-    height: 28,
+    height: 56,
     marginRight: theme.spacing(2),
   },
   drawerList: {
@@ -32,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
   spacer: {
     flexGrow: 1,
-  },
+  }
 }));
 
 function Navbar(props) {
@@ -190,18 +188,6 @@ function Navbar(props) {
               </ListItem>
             </>
           )}
-
-          {/* <ListItem>
-            <IconButton
-              color="inherit"
-              onClick={darkMode.toggle}
-              style={{ opacity: 0.6 }}
-            >
-              {darkMode.value && <NightsStayIcon />}
-
-              {!darkMode.value && <WbSunnyIcon />}
-            </IconButton>
-          </ListItem> */}
         </List>
       </Drawer>
     </Section>

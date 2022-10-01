@@ -1,0 +1,322 @@
+[
+    {
+        "wallet_id": "0x886fAc470FE9cFB538861a7d6fdC73666770066f",
+        "start": 1664650717,
+        "end": 1664660717,
+        "portfolio_size": 123322.54,
+        "num_trades": 6,
+        "asset_allocation": {
+            "coins": {
+                "percentage": 45.22,
+                "value": 55766.452588
+            },
+            "liquidity": {
+                "percentage": 54.78,
+                "value": 67556.087412
+            }
+        },
+        "profit_loss": -1233.45,
+        "transactions": [
+            {
+                "id": "0x1Ad49A332634c0D3a072442e330DD3C8154Aa105",
+                "block_number": 1238,
+                "timestamp": 1664650747,
+                "transaction_data": {
+                    "mints": [
+                        {
+                            "token_0": "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E",
+                            "token_1": "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+                        }
+                    ],
+                    "burns": [],
+                    "swaps": []
+                }
+            },
+            {
+                "id": "0x1Ad49A332634c0D3a072442e330DD3C8154Aa106",
+                "block_number": 1238,
+                "timestamp": 1664650747,
+                "transaction_data": {
+                    "mints": [],
+                    "burns": [
+                        {
+                            "token_0": "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E",
+                            "token_1": "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+                        }
+                    ],
+                    "swaps": []
+                }
+            },
+            {
+                "id": "0x1Ad49A332634c0D3a072442e330DD3C8154Aa107",
+                "block_number": 1239,
+                "timestamp": 1664650747,
+                "transaction_data": {
+                    "mints": [
+                        {
+                            "token_0": "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E",
+                            "token_1": "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+                        }
+                    ],
+                    "burns": [],
+                    "swaps": []
+                }
+            },
+            {
+                "id": "0x1Ad49A332634c0D3a072442e330DD3C8154Aa108",
+                "block_number": 1240,
+                "timestamp": 1664650747,
+                "transaction_data": {
+                    "mints": [],
+                    "burns": [],
+                    "swaps": [
+                        {
+                            "token_0": "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E",
+                            "token_1": "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "wallet_id": "0x886fAc470FE9cFB538861a7d6fdC73666770066f",
+        "start": 1664650717,
+        "end": 1664660717,
+        "portfolio_size": 123322.54,
+        "num_trades": 6,
+        "asset_allocation": {
+            "coins": {
+                "percentage": 45.22,
+                "value": 55766.452588
+            },
+            "liquidity": {
+                "percentage": 54.78,
+                "value": 67556.087412
+            }
+        },
+        "profit_loss": -1233.45,
+        "transactions": [
+            {
+                "id": "0x1Ad49A332634c0D3a072442e330DD3C8154Aa105",
+                "block_number": 1238,
+                "timestamp": 1664650747,
+                "transaction_data": {
+                    "mints": [
+                        {
+                            "token_0": "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E",
+                            "token_1": "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+                        }
+                    ],
+                    "burns": [],
+                    "swaps": []
+                }
+            },
+            {
+                "id": "0x1Ad49A332634c0D3a072442e330DD3C8154Aa106",
+                "block_number": 1238,
+                "timestamp": 1664650747,
+                "transaction_data": {
+                    "mints": [],
+                    "burns": [
+                        {
+                            "token_0": "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E",
+                            "token_1": "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+                        }
+                    ],
+                    "swaps": []
+                }
+            },
+            {
+                "id": "0x1Ad49A332634c0D3a072442e330DD3C8154Aa107",
+                "block_number": 1239,
+                "timestamp": 1664650747,
+                "transaction_data": {
+                    "mints": [
+                        {
+                            "token_0": "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E",
+                            "token_1": "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+                        }
+                    ],
+                    "burns": [],
+                    "swaps": []
+                }
+            },
+            {
+                "id": "0x1Ad49A332634c0D3a072442e330DD3C8154Aa108",
+                "block_number": 1240,
+                "timestamp": 1664650747,
+                "transaction_data": {
+                    "mints": [],
+                    "burns": [],
+                    "swaps": [
+                        {
+                            "token_0": "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E",
+                            "token_1": "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "wallet_id": "0x886fAc470FE9cFB538861a7d6fdC73666770066f",
+        "start": 1664650717,
+        "end": 1664660717,
+        "portfolio_size": 123322.54,
+        "num_trades": 6,
+        "asset_allocation": {
+            "coins": {
+                "percentage": 45.22,
+                "value": 55766.452588
+            },
+            "liquidity": {
+                "percentage": 54.78,
+                "value": 67556.087412
+            }
+        },
+        "profit_loss": -1233.45,
+        "transactions": [
+            {
+                "id": "0x1Ad49A332634c0D3a072442e330DD3C8154Aa105",
+                "block_number": 1238,
+                "timestamp": 1664650747,
+                "transaction_data": {
+                    "mints": [
+                        {
+                            "token_0": "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E",
+                            "token_1": "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+                        }
+                    ],
+                    "burns": [],
+                    "swaps": []
+                }
+            },
+            {
+                "id": "0x1Ad49A332634c0D3a072442e330DD3C8154Aa106",
+                "block_number": 1238,
+                "timestamp": 1664650747,
+                "transaction_data": {
+                    "mints": [],
+                    "burns": [
+                        {
+                            "token_0": "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E",
+                            "token_1": "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+                        }
+                    ],
+                    "swaps": []
+                }
+            },
+            {
+                "id": "0x1Ad49A332634c0D3a072442e330DD3C8154Aa107",
+                "block_number": 1239,
+                "timestamp": 1664650747,
+                "transaction_data": {
+                    "mints": [
+                        {
+                            "token_0": "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E",
+                            "token_1": "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+                        }
+                    ],
+                    "burns": [],
+                    "swaps": []
+                }
+            },
+            {
+                "id": "0x1Ad49A332634c0D3a072442e330DD3C8154Aa108",
+                "block_number": 1240,
+                "timestamp": 1664650747,
+                "transaction_data": {
+                    "mints": [],
+                    "burns": [],
+                    "swaps": [
+                        {
+                            "token_0": "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E",
+                            "token_1": "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "wallet_id": "0x886fAc470FE9cFB538861a7d6fdC73666770066f",
+        "start": 1664650717,
+        "end": 1664660717,
+        "portfolio_size": 123322.54,
+        "num_trades": 6,
+        "asset_allocation": {
+            "coins": {
+                "percentage": 45.22,
+                "value": 55766.452588
+            },
+            "liquidity": {
+                "percentage": 54.78,
+                "value": 67556.087412
+            }
+        },
+        "profit_loss": -1233.45,
+        "transactions": [
+            {
+                "id": "0x1Ad49A332634c0D3a072442e330DD3C8154Aa105",
+                "block_number": 1238,
+                "timestamp": 1664650747,
+                "transaction_data": {
+                    "mints": [
+                        {
+                            "token_0": "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E",
+                            "token_1": "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+                        }
+                    ],
+                    "burns": [],
+                    "swaps": []
+                }
+            },
+            {
+                "id": "0x1Ad49A332634c0D3a072442e330DD3C8154Aa106",
+                "block_number": 1238,
+                "timestamp": 1664650747,
+                "transaction_data": {
+                    "mints": [],
+                    "burns": [
+                        {
+                            "token_0": "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E",
+                            "token_1": "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+                        }
+                    ],
+                    "swaps": []
+                }
+            },
+            {
+                "id": "0x1Ad49A332634c0D3a072442e330DD3C8154Aa107",
+                "block_number": 1239,
+                "timestamp": 1664650747,
+                "transaction_data": {
+                    "mints": [
+                        {
+                            "token_0": "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E",
+                            "token_1": "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+                        }
+                    ],
+                    "burns": [],
+                    "swaps": []
+                }
+            },
+            {
+                "id": "0x1Ad49A332634c0D3a072442e330DD3C8154Aa108",
+                "block_number": 1240,
+                "timestamp": 1664650747,
+                "transaction_data": {
+                    "mints": [],
+                    "burns": [],
+                    "swaps": [
+                        {
+                            "token_0": "0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E",
+                            "token_1": "0xc0ffee254729296a45a3885639AC7E10F9d54979"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+]

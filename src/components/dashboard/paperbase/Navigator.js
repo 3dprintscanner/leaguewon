@@ -9,23 +9,17 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
-import PeopleIcon from '@material-ui/icons/People';
-import DnsRoundedIcon from '@material-ui/icons/DnsRounded';
-import PermMediaOutlinedIcon from '@material-ui/icons/PhotoSizeSelectActual';
-import PublicIcon from '@material-ui/icons/Public';
-import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet';
-import SettingsInputComponentIcon from '@material-ui/icons/SettingsInputComponent';
-import TimerIcon from '@material-ui/icons/Timer';
-import SettingsIcon from '@material-ui/icons/Settings';
-import PhonelinkSetupIcon from '@material-ui/icons/PhonelinkSetup';
+import ForumIcon from '@material-ui/icons/Forum';
+import GroupIcon from '@material-ui/icons/Group';
+import { Link } from "./../../../util/router.js";
+
 
 const categories = [
   {
-    id: 'Develop',
+    id: 'Explore',
     children: [
-      { id: 'Home', icon: <DnsRoundedIcon />, active: true },
-      { id: 'Traders', icon: <PeopleIcon /> },
-      { id: 'Community', icon: <PermMediaOutlinedIcon /> },
+      { id: 'Traders', icon: <GroupIcon />, to: '/traders' },
+      { id: 'Community', icon: <ForumIcon />, to: '/community' },
     ],
   }
 ];
@@ -54,7 +48,7 @@ const styles = (theme) => ({
   },
   firebase: {
     fontSize: 24,
-    color: theme.palette.bakground,
+    color: theme.palette.background,
   },
   itemActiveItem: {
     color: '#4fc3f7',
@@ -69,6 +63,9 @@ const styles = (theme) => ({
   divider: {
     marginTop: theme.spacing(2),
   },
+  themeBackground: {
+    // backgroundColor: theme.palette.background.default
+  }
 });
 
 function Navigator(props) {
@@ -80,7 +77,7 @@ function Navigator(props) {
         <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
           RankDex
         </ListItem>
-        <ListItem className={clsx(classes.item, classes.itemCategory)}>
+        <ListItem className={clsx(classes.item, classes.itemCategory)}  component={Link} to="/overview" button>
           <ListItemIcon className={classes.itemIcon}>
             <HomeIcon />
           </ListItemIcon>
@@ -89,7 +86,7 @@ function Navigator(props) {
               primary: classes.itemPrimary,
             }}
           >
-            Project Overview
+            Dashboard
           </ListItemText>
         </ListItem>
         {categories.map(({ id, children }) => (
@@ -103,21 +100,23 @@ function Navigator(props) {
                 {id}
               </ListItemText>
             </ListItem>
-            {children.map(({ id: childId, icon, active }) => (
-              <ListItem
-                key={childId}
-                button
-                className={clsx(classes.item, active && classes.itemActiveItem)}
-              >
-                <ListItemIcon className={classes.itemIcon}>{icon}</ListItemIcon>
-                <ListItemText
-                  classes={{
-                    primary: classes.itemPrimary,
-                  }}
+            {children.map(({ id: childId, icon, to }) => (
+                <ListItem
+                  component={Link}
+                  to={to}
+                  key={childId}
+                  button
+                  className={clsx(classes.item, false && classes.itemActiveItem)}
                 >
-                  {childId}
-                </ListItemText>
-              </ListItem>
+                  <ListItemIcon className={classes.itemIcon}>{icon}</ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.itemPrimary,
+                    }}
+                  >
+                    {childId}
+                  </ListItemText>
+                </ListItem>
             ))}
 
             <Divider className={classes.divider} />
