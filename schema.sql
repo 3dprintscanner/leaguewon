@@ -85,3 +85,28 @@ create policy "Can read items they own" on public.items for select using ( auth.
 create policy "Can insert items they own" on public.items for insert with check ( auth.uid() = "owner" );
 create policy "Can update items they own" on public.items for update using ( auth.uid() = "owner" );
 create policy "Can delete items they own" on public.items for delete using ( auth.uid() = "owner" );
+
+create table public.posts (
+  "id" uuid primary key default uuid_generate_v4(),
+  "owner" uuid references public.users not null,
+  "content" text
+);
+
+create table public.comments (
+  "id" uuid primary key default uuid_generate_v4(),
+  "post" uuid references public.posts not null,
+  "comment" text,
+  "owner" uuid references public.users not null
+);
+
+alter table public.comments enable row level security;
+create policy "Authenticated users can read comments" on public.comments for select using (auth.role() = 'authenticated');
+create policy "Can insert items they own" on public.comments for insert with check ( auth.uid() = "owner" );
+create policy "Can update items they own" on public.comments for update using ( auth.uid() = "owner" );
+create policy "Can delete items they own" on public.comments for delete using ( auth.uid() = "owner" );
+
+alter table public.posts enable row level security;
+create policy "Authenticated users can read posts" on public.posts for select using (auth.role() = 'authenticated');
+create policy "Can insert items they own" on public.posts for insert with check ( auth.uid() = "owner" );
+create policy "Can update items they own" on public.posts for update using ( auth.uid() = "owner" );
+create policy "Can delete items they own" on public.posts for delete using ( auth.uid() = "owner" );
