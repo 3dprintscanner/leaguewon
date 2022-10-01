@@ -6,6 +6,7 @@ import FaqPage from "./faq";
 import ContactPage from "./contact";
 import PricingPage from "./pricing";
 import DashboardPage from "./dashboard";
+import OverviewPage from "./overview";
 import AuthPage from "./auth";
 import SettingsPage from "./settings";
 import LegalPage from "./legal";
@@ -45,6 +46,8 @@ function App(props) {
                 <Route exact path="/pricing" component={PricingPage} />
 
                 <Route exact path="/dashboard" component={DashboardPage} />
+
+                <Route exact path="/overview" component={OverviewPage} />
 
                 <Route exact path="/auth/:type" component={AuthPage} />
 

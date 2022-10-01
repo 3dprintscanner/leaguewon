@@ -122,6 +122,9 @@ function Navbar(props) {
                     <MenuItem component={Link} to="/dashboard">
                       Dashboard
                     </MenuItem>
+                    <MenuItem component={Link} to="/overview">
+                      Overview
+                    </MenuItem>
                     <MenuItem component={Link} to="/settings/general">
                       Settings
                     </MenuItem>
@@ -137,7 +140,7 @@ function Navbar(props) {
                 </>
               )}
 
-              <IconButton
+              {/* <IconButton
                 color="inherit"
                 onClick={darkMode.toggle}
                 style={{ opacity: 0.6 }}
@@ -145,7 +148,7 @@ function Navbar(props) {
                 {darkMode.value && <NightsStayIcon />}
 
                 {!darkMode.value && <WbSunnyIcon />}
-              </IconButton>
+              </IconButton> */}
             </Hidden>
           </Toolbar>
         </Container>
@@ -170,6 +173,9 @@ function Navbar(props) {
               <ListItem component={Link} to="/dashboard" button={true}>
                 <ListItemText>Dashboard</ListItemText>
               </ListItem>
+              <ListItem component={Link} to="/overview" button={true}>
+                <ListItemText>Overview</ListItemText>
+              </ListItem>
               <ListItem component={Link} to="/settings/general" button={true}>
                 <ListItemText>Settings</ListItemText>
               </ListItem>
@@ -185,7 +191,7 @@ function Navbar(props) {
             </>
           )}
 
-          <ListItem>
+          {/* <ListItem>
             <IconButton
               color="inherit"
               onClick={darkMode.toggle}
@@ -195,7 +201,7 @@ function Navbar(props) {
 
               {!darkMode.value && <WbSunnyIcon />}
             </IconButton>
-          </ListItem>
+          </ListItem> */}
         </List>
       </Drawer>
     </Section>

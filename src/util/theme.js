@@ -96,6 +96,11 @@ const themeConfig = {
           },
         },
       },
+      MuiDrawer: {
+        paper: {
+          top: "unset"
+        },        
+      }
     },
   },
 };
@@ -126,9 +131,10 @@ export const ThemeProvider = (props) => {
   // Get stored dark mode preference
   let [isDarkModeStored, setIsDarkModeStored] = useDarkModeStorage();
 
+  const isDarkMode = true
   // Use stored dark mode with fallback to system preference
-  const isDarkMode =
-    isDarkModeStored === undefined ? prefersDarkMode : isDarkModeStored;
+  // const isDarkMode =
+  //   isDarkModeStored === undefined ? prefersDarkMode : isDarkModeStored;
 
   // Get MUI theme object
   const themeName = isDarkMode ? "dark" : "light";
