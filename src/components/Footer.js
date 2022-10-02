@@ -111,6 +111,14 @@ function Footer(props) {
                   >
                     <ListItemText>FAQ</ListItemText>
                   </ListItem>
+                  <ListItem
+                    button={true}
+                    className={classes.listItem}
+                  >
+                    <a href="https://github.com/3dprintscanner/rankdex" style={{textDecoration: 'none', color: 'unset'}}>
+                      <ListItemText>GitHub</ListItemText>
+                    </a>
+                  </ListItem>
                 </List>
               </Grid>
               <Grid item={true} xs={12} md={4}>
@@ -140,14 +148,12 @@ function Footer(props) {
                     <ListItemText>Contact</ListItemText>
                   </ListItem>
                   <ListItem
-                    href="https://docs.google.com/presentation/d/19Q3SI9hq-AmjXSuErVTp2xoqB4HDPSBmV8XitflDepo/edit?usp=sharing"
                     button={true}
                     className={classes.listItem}
                   >
                     <a href="https://docs.google.com/presentation/d/19Q3SI9hq-AmjXSuErVTp2xoqB4HDPSBmV8XitflDepo/edit?usp=sharing" style={{textDecoration: 'none', color: 'unset'}}>
                       <ListItemText>Pitch Deck</ListItemText>
                     </a>
-
                   </ListItem>
                 </List>
               </Grid>
