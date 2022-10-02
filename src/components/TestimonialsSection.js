@@ -29,21 +29,21 @@ function TestimonialsSection(props) {
       name: "Marc",
       testimonial:
         "Great potential, the visibility of other traders is great together with supporting the learning of users",
-      company: "Company",
+      company: "DeFi, Rust and Algorithm Developer",
     },
     {
       avatar: "wong.png",
       name: "Michael",
       testimonial:
         "I like the way investors can stake or follow individual traders",
-      company: "Company",
+      company: "Rust and Algorithm Developer",
     },
     {
       avatar: "thomas.png",
       name: "Thomas",
       testimonial:
         "Fixes the black box model of firms like eToro and Gate.io and makes that information publibly available",
-      company: "Company",
+      company: "Quantitative Trader",
     },
   ];
 
