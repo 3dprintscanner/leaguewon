@@ -121,7 +121,7 @@ create table public.traderstats (
 )
 
 create table public.stats_transactions(
-  "id" uuid primary key default default uuid_generate_v4(),
+  "id" uuid primary key default uuid_generate_v4(),
   "stat_id" uuid reference public.traderstats not null,
   "transaction_id" varchar reference public.transactions not null
 )
@@ -129,7 +129,6 @@ create table public.stats_transactions(
 create table public.transactions (
   "id" varchar primary key not null,
   "block_number" int8 not null,
-  "timestamp" datetime not null,
+  "timestamp" timestamp not null,
   "transaction_data" json,
-
 )

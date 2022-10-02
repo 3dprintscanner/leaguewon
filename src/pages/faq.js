@@ -3,7 +3,7 @@ import Meta from "./../components/Meta";
 import FaqSection from "./../components/FaqSection";
 import CtaSection from "./../components/CtaSection";
 
-function FaqPage(props) {
+function FaqPage() {
   return (
     <>
       <Meta title="Faq" />

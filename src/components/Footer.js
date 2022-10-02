@@ -64,7 +64,7 @@ function Footer(props) {
         <Grid container={true} justifyContent="space-between" spacing={4}>
           <Grid item={true} xs={12} md={4}>
             <Link to="/" className={classes.noLink}>
-              <Logo/>
+              <Logo />
             </Link>
 
             {props.description && (
@@ -138,7 +138,17 @@ function Footer(props) {
                     className={classes.listItem}
                   >
                     <ListItemText>Contact</ListItemText>
-                  </ListItem>                  
+                  </ListItem>
+                  <ListItem
+                    href="https://docs.google.com/presentation/d/19Q3SI9hq-AmjXSuErVTp2xoqB4HDPSBmV8XitflDepo/edit?usp=sharing"
+                    button={true}
+                    className={classes.listItem}
+                  >
+                    <a href="https://docs.google.com/presentation/d/19Q3SI9hq-AmjXSuErVTp2xoqB4HDPSBmV8XitflDepo/edit?usp=sharing" style={{textDecoration: 'none', color: 'unset'}}>
+                      <ListItemText>Pitch Deck</ListItemText>
+                    </a>
+
+                  </ListItem>
                 </List>
               </Grid>
               <Grid item={true} xs={12} md={4}>
