@@ -93,7 +93,7 @@ export function usePosts(uid){
     () =>
       supabase
         .from("posts")
-        .select(`title, content, owner(id, name)`)
+        .select(`id, title, content, owner(id, name)`)
         .eq("owner", uid)
         .then(handle),
     // Only call query function if we have a `uid`
