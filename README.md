@@ -21,3 +21,6 @@ Chiefly:
  - REACT_APP_SUPABASE_URL
 
 Demo [here](https://rankdex.vercel.app/)
+
+
+![screenshot](public/screenshot.png "a title")
