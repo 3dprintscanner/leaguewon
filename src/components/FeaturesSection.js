@@ -34,7 +34,7 @@ function FeaturesSection(props) {
   const items = [
     {
       title: "Track your favourite trader",
-      body: "Find, follow and learn from the best traders on the exchanges such as Uniswap, Kine and dYdX. ",
+      body: "Find, follow and learn from the best traders on the exchanges such as Uniswap, Kine and PancakeSwap. ",
       image: "undraw_btc.svg",
     },
     {

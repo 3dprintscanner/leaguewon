@@ -95,11 +95,6 @@ const themeConfig = {
             },
           },
         },
-      },
-      MuiDrawer: {
-        paper: {
-          top: "unset"
-        },        
       }
     },
   },

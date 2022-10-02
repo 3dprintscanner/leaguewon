@@ -25,21 +25,21 @@ function TestimonialsSection(props) {
 
   const items = [
     {
-      avatar: "https://uploads.divjoy.com/pravatar-150x-5.jpeg",
+      avatar: "marc.webp",
       name: "Marc",
       testimonial:
         "Great potential, the visibility of other traders is great together with supporting the learning of users",
       company: "Company",
     },
     {
-      avatar: "https://uploads.divjoy.com/pravatar-150x-48.jpeg",
+      avatar: "wong.png",
       name: "Michael",
       testimonial:
         "I like the way investors can stake or follow individual traders",
       company: "Company",
     },
     {
-      avatar: "https://uploads.divjoy.com/pravatar-150x-12.jpeg",
+      avatar: "thomas.png",
       name: "Thomas",
       testimonial:
         "Fixes the black box model of firms like eToro and Gate.io and makes that information publibly available",

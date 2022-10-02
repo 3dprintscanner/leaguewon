@@ -56,6 +56,7 @@ const styles = (theme) => ({
   },
   itemPrimary: {
     fontSize: 'inherit',
+    animation: 'neon1 7.5s ease-in-out infinite alternate'
   },
   itemIcon: {
     minWidth: 'auto',
