@@ -2,12 +2,25 @@ import React from "react";
 import Meta from "./../components/Meta";
 import HeroSection from "./../components/HeroSection";
 import FeaturesSection from "./../components/FeaturesSection";
-import ClientsSection from "./../components/ClientsSection";
 import TestimonialsSection from "./../components/TestimonialsSection";
 import NewsletterSection from "./../components/NewsletterSection";
 import CtaSection from "./../components/CtaSection";
 import BigLogo from "./../components/BigLogo"
+import './../components/dashboard/Animation.css';
+
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  buttonGlow: {
+    animation: 'neon1 1.5s ease-in-out infinite alternate'
+  }
+  
+}));
+
+
 function IndexPage(props) {
+  const classes = useStyles();
+
   return (
     <>
       <Meta />
@@ -21,6 +34,7 @@ function IndexPage(props) {
         buttonText="Join the Community"
         buttonColor="secondary"
         buttonPath="/pricing"
+        buttonClass={classes.buttonGlow}
       />
       <FeaturesSection
         bgColor="default"
@@ -30,14 +44,14 @@ function IndexPage(props) {
         title="Features"
         subtitle=""
       />
-      <ClientsSection
+      {/* <ClientsSection
         bgColor="light"
         size="medium"
         bgImage=""
         bgImageOpacity={1}
         title="You're in good company"
         subtitle=""
-      />
+      /> */}
       <TestimonialsSection
         bgColor="default"
         size="medium"
@@ -59,7 +73,7 @@ function IndexPage(props) {
         subscribedMessage="You are now subscribed!"
       />
       <CtaSection
-        bgColor="default"
+        bgColor="primary"
         size="medium"
         bgImage=""
         bgImageOpacity={1}

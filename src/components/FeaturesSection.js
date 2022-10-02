@@ -34,23 +34,23 @@ function FeaturesSection(props) {
   const items = [
     {
       title: "Track your favourite trader",
-      body: "Find, follow and learn from the best traders on the exchanges.",
-      image: "https://uploads.divjoy.com/undraw-fish_bowl_uu88.svg",
+      body: "Find, follow and learn from the best traders on the exchanges such as Uniswap, Kine and dYdX. ",
+      image: "undraw_btc.svg",
     },
     {
       title: "Leverage your success",
       body: "As a trader sign your wallet address and generate a verified public profile for investors.",
-      image: "https://uploads.divjoy.com/undraw-directions_x53j.svg",
+      image: "undraw_stats.svg",
     },
     {
       title: "Follow, analyse and learn the plays",
       body: "Get live feeds of your favourite trades, discuss with the community and learn together.",
-      image: "https://uploads.divjoy.com/undraw-stability_ball_b4ia.svg",
+      image: "undraw_share.svg",
     },
     {
       title: "Make the leaderboard",
       body: "Ranked leaderboards for the best traders and strategies, compete and grow together",
-      image: "https://uploads.divjoy.com/undraw-personal_settings_kihd.svg",
+      image: "undraw_moon.svg ",
     },
   ];
 

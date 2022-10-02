@@ -30,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
   },
   spacer: {
     flexGrow: 1,
+  },
+  noLink: {
+    textDecoration: 'none'
   }
 }));
 
@@ -58,7 +61,7 @@ function Navbar(props) {
       <AppBar position="static" color="transparent" elevation={0}>
         <Container disableGutters={true}>
           <Toolbar>
-            <Link to="/">
+            <Link to="/" className={classes.noLink}>
               <Logo/>
             </Link>
             <div className={classes.spacer} />

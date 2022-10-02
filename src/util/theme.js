@@ -16,7 +16,7 @@ const themeConfig = {
       type: "light",
       primary: {
         // Use hue from colors or hex
-        main: colors.indigo["500"],
+        main: "#b9da6b",
         // Uncomment to specify light/dark
         // shades instead of automatically
         // calculating from above value.
@@ -44,7 +44,7 @@ const themeConfig = {
       primary: {
         // Same as in light but we could
         // adjust color hue if needed
-        main: colors.indigo["500"],
+        main: "#b9da6b",
       },
       secondary: {
         main: "#c465a1",

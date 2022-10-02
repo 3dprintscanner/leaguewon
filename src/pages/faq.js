@@ -16,14 +16,14 @@ function FaqPage(props) {
         subtitle=""
       />
       <CtaSection
-        bgColor="primary"
+        bgColor="secondary"
         size="medium"
         bgImage=""
         bgImageOpacity={1}
         title="Ready to get started?"
         subtitle=""
         buttonText="Get Started"
-        buttonColor="default"
+        buttonColor="primary"
         buttonPath="/pricing"
       />
     </>

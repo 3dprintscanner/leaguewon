@@ -7,6 +7,7 @@ import SectionHeader from "./SectionHeader";
 import { Link } from "./../util/router";
 
 function HeroSection(props) {
+  console.log(props)
   return (
     <Section
       bgColor={props.bgColor}
@@ -27,6 +28,7 @@ function HeroSection(props) {
             variant="contained"
             size="large"
             color={props.buttonColor}
+            className={props.buttonClass ?? undefined}
           >
             {props.buttonText}
           </Button>

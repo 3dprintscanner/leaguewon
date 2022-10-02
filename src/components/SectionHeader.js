@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     // Subtitle text generally isn't very long
     // so usually looks better to limit width.
     maxWidth: 700,
+    fontSize: '1.3rem',
     // So we can have max-width but still
     // have alignment controlled by text-align.
     display: "inline-block",

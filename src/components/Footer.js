@@ -30,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
   listItemTextHeader: {
     fontWeight: "bold",
   },
+  noLink: {
+    textDecoration: 'none'
+  },
   socialIcon: {
     minWidth: 30,
   },
@@ -60,7 +63,7 @@ function Footer(props) {
       <Container>
         <Grid container={true} justifyContent="space-between" spacing={4}>
           <Grid item={true} xs={12} md={4}>
-            <Link to="/">
+            <Link to="/" className={classes.noLink}>
               <Logo/>
             </Link>
 
@@ -135,17 +138,7 @@ function Footer(props) {
                     className={classes.listItem}
                   >
                     <ListItemText>Contact</ListItemText>
-                  </ListItem>
-                  <ListItem
-                    button={true}
-                    component="a"
-                    href="https://medium.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className={classes.listItem}
-                  >
-                    <ListItemText>Blog</ListItemText>
-                  </ListItem>
+                  </ListItem>                  
                 </List>
               </Grid>
               <Grid item={true} xs={12} md={4}>
