@@ -24,6 +24,8 @@ Demo [here](https://rankdex.vercel.app/)
 
 Code for the backend lives [here](https://github.com/robinbernon/rustfi)
 
+Check it out with `git submodule init` and `git submodule update` when cloning this repo
+
 ## Home Screen
 ![home screen](public/screenshot.png "home screen")
 
