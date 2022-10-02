@@ -61,8 +61,8 @@ function PricingSection(props) {
     },
     {
       id: "pro",
-      name: "Standard",
-      price: "20",
+      name: "Pro",
+      price: "10",
       perks: [
         "Follow and copy up to 10 traders",
         "Full access to the knowledge and discussion base",
@@ -71,13 +71,12 @@ function PricingSection(props) {
     },
     {
       id: "business",
-      name: "Pro",
-      price: "150",
+      name: "Enterprise",
+      price: "5000+",
       perks: [
         "Follow and copy unlimited traders",
         "Aggregated data at the lowest latency",
-        "Special members learning content and webinars",
-        "Beta testing of new components",
+        "High tier social ordering data",
       ],
     },
   ];
