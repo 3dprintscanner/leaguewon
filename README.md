@@ -22,6 +22,8 @@ Chiefly:
 
 Demo [here](https://rankdex.vercel.app/)
 
+Code for the backend lives [here](https://github.com/robinbernon/rustfi)
+
 ## Home Screen
 ![home screen](public/screenshot.png "home screen")
 
