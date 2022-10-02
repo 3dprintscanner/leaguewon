@@ -22,5 +22,12 @@ Chiefly:
 
 Demo [here](https://rankdex.vercel.app/)
 
+## Home Screen
+![home screen](public/screenshot.png "home screen")
 
-![screenshot](public/screenshot.png "a title")
+## User View
+
+![user screenshot](public/user_screenshot.png "user view")
+
+## Leaderboard
+![leaderboard](public/leaderboard_screenshot.png "leaderboard")
