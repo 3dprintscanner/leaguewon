@@ -1,10 +1,11 @@
 import React from "react";
 import { requireAuth } from "./../util/auth";
 import { useRouter } from "./../util/router.js";
-import { Paper, Grid } from "@material-ui/core"
+import { Paper, Grid, Box } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles";
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
+import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
@@ -13,8 +14,12 @@ import './../components/dashboard/Animation.css';
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import { usePosts } from './../util/db'
+import { usePosts, useRealUser, createFollower, useIsFollower } from './../util/db'
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Button from "@material-ui/core/Button";
+import { useAuth } from "./../util/auth";
+import { Link } from "./../util/router";
+
 
 const stubData = {
     "wallet_id": "0x886fAc470FE9cFB538861a7d6fdC73666770066f",
@@ -33,7 +38,7 @@ const stubData = {
 
         }
     },
-    "profit_loss": -1233.45,
+    "profit_loss": 11233.45,
     "transactions": [
         {
             "id": "0x1Ad49A332634c0D3a072442e330DD3C8154Aa105",
@@ -156,14 +161,13 @@ function mapPosts(posts) {
         <>
             <Grid container>
                 <Grid item>
-                    <Typography variant="h5">Recent Posts</Typography>
-                </Grid>
-            </Grid>
-            <Grid container>
-                <Grid item>
-                    <List>
-                        {posts.map(p => (<ListItem><ListItemText>{p.content}</ListItemText></ListItem>))}
-                    </List>
+                    <Card >
+                        <CardHeader title="Recent Posts"/>
+                        <List>
+                            {posts.map(p => (<ListItem button component={Link} to={`/community/${p.id}`}><ListItemText>{p.content}</ListItemText></ListItem>))}
+                        </List>
+                    </Card>
+
                 </Grid>
             </Grid>
         </>
@@ -175,9 +179,14 @@ function TraderPage(props) {
 
     const router = useRouter();
     console.log(router.query.id)
+    const auth = useAuth();
+
+
+    console.log(router.query.pl)
 
     const classes = useStyles();
-
+    const { data: user} = useRealUser(router.query.id);
+    const { data: follower } = useIsFollower(auth.user.id, router.query.id);
     const { data: posts, isLoading, error: itemsError } = usePosts(router.query.id);
 
     const data = stubbed;
@@ -187,34 +196,40 @@ function TraderPage(props) {
         console.log(profitLoss)
         if (profitLoss >= 0.0) {
             return (
-                <Typography gutterBottom variant="h5" component="h2">
+                <Typography gutterBottom variant="h5" component="h2" className={classes.profit}>
                     {profitLoss}
                 </Typography>)
         } else {
-            return (<Typography gutterBottom variant="h5" component="h2">
+            return (<Typography gutterBottom variant="h5" component="h2" className={classes.losses}>
                 {profitLoss} losses
             </Typography>)
         }
     }
 
-    const renderPercentage = () => {
+    const renderPercentage = (pl) => {
 
-        if (data['profit_loss'] >= 0.0) {
+        if (pl >= 0.0) {
             return (
                 <Typography gutterBottom variant="h3" component="h2" className={classes.profit}>
-                    {`+${((data['profit_loss'] / data['portfolio_size']) * 100).toFixed(2)}%`}
+                    {`+${((pl / data['portfolio_size']) * 100).toFixed(2)}%`}
                 </Typography>
             )
         }
         else {
             return (
                 <Typography gutterBottom variant="h3" component="h2" className={classes.losses}>
-                    {`${((data['profit_loss'] / data['portfolio_size']) * 100).toFixed(2)}%`}
+                    {`${((pl / data['portfolio_size']) * 100).toFixed(2)}%`}
                 </Typography>
             )
         }
     }
 
+    const handleClick = () => {
+        // add a row to the follow table for the trader id and the currently signed in user
+        const response = createFollower({user_id: auth.user.id, following_id: router.query.id} )
+        console.log(response)
+        return response;
+    }
     return (
         <>
             <Paper elevation={2}>
@@ -229,15 +244,15 @@ function TraderPage(props) {
                                 <CardActionArea>
                                     <CardMedia
                                         className={classes.media}
-                                        image="/nft_image.png"
+                                        image={`https://avatars.dicebear.com/api/pixel-art/${router.query.id}custom-seed.svg`}
                                         title="Contemplative Reptile"
                                     />
                                     <CardContent>
                                         <Typography gutterBottom variant="h5" component="h2">
-                                            {data.name}
+                                            {user && user.name}
                                         </Typography>
                                         <Typography variant="body2" color="textSecondary" component="p">
-                                            {data.description}
+                                            {user && user.userType}
                                         </Typography>
                                     </CardContent>
                                 </CardActionArea>
@@ -251,32 +266,34 @@ function TraderPage(props) {
                             <Card className={classes.root}>
                                 <CardActionArea>
                                     <CardContent>
-                                        {renderPl(data["profit_loss"])}
+                                        {/* {renderPl(data["profit_loss"])} */}
+                                        {renderPl((router.query.pl && router.query.pl) ?? 0)}
+                                        <Button variant="contained" color="secondary" onClick={handleClick} disabled={follower}>{follower ? "Unfollow" : "Follow this Trader"}</Button>
                                     </CardContent>
                                 </CardActionArea>
                             </Card>
                         </Grid>
                         <Grid
                             item={true}
-
                             xs={6}
                             md={3}
-
                             className={classes.gridItem}>
                             <Card className={classes.root}>
                                 <CardActionArea>
                                     <CardContent>
-                                        {renderPercentage()}
+                                        {renderPercentage(router.query.pl)}
                                     </CardContent>
                                 </CardActionArea>
                             </Card>
                         </Grid>
                     </Grid>
                     <Grid container>
-                        <TradeTable data={stubbed.transactions} />
+                        <Box sx={{ padding: 4, margin: 8 }}>
+                            <TradeTable data={stubbed.transactions} />
+                        </Box>
                     </Grid>
                     <Grid container>
-                        {isLoading ? <CircularProgress/> : (posts && !itemsError && mapPosts(posts)) ?? "No posts by this user"}
+                        {isLoading ? <CircularProgress /> : (posts && !itemsError && mapPosts(posts)) ?? "No posts by this user"}
                     </Grid>
                 </Grid>
             </Paper>

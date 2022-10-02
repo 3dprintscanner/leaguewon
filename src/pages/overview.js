@@ -9,8 +9,7 @@ function OverviewPage(props) {
     return (
     <>
       <Meta title="Overview" />
-      <Paperbase content={props.content}>
-      </Paperbase>
+    <Paperbase content={props.content}/>
     </>
   );
 }

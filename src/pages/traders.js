@@ -1,15 +1,15 @@
 import React from "react";
 import { requireAuth } from "./../util/auth";
-import Paper from '@material-ui/core/Paper'
+import Paperbase from "./../components/dashboard/paperbase/Paperbase";
+import Meta from "./../components/Meta";
 
 function TradersPage(props) {
-  return (
-    <>
-        <Paper>
-            pepo traders
-        </Paper>        
-    </>
-  );
+    return (
+        <>
+            <Meta title="Traders" />
+            <Paperbase content={props.content} />
+        </>
+    );
 }
 
 export default requireAuth(TradersPage);

@@ -5,18 +5,18 @@ import AboutPage from "./about";
 import FaqPage from "./faq";
 import ContactPage from "./contact";
 import PricingPage from "./pricing";
-import DashboardPage from "./dashboard";
 import OverviewPage from "./overview";
 import AuthPage from "./auth";
 import SettingsPage from "./settings";
 import LegalPage from "./legal";
 import CommunityPage from "./community";
-import TradersPage from "./traders";
 import TraderPage from "./trader";
 import { Switch, Route, Router } from "./../util/router";
 import PurchasePage from "./purchase";
+import DiscussionPage from "./../components/DiscussionPage";
 import NotFoundPage from "./404";
 import Footer from "./../components/Footer";
+import Leaderboard from "./../components/dashboard/paperbase/Leaderboard";
 import "./../util/analytics";
 import Chat from "./../components/Chat";
 import { AuthProvider } from "./../util/auth";
@@ -48,13 +48,13 @@ function App(props) {
 
                 <Route exact path="/pricing" component={PricingPage} />
 
-                <Route exact path="/dashboard" component={DashboardPage} />
 
-                <Route exact path="/overview" component={OverviewPage} />
+                <Route exact path="/overview" render={() => <OverviewPage content={<Leaderboard/>}/>} />
 
-                <Route exact path="/traders" render={() => <OverviewPage content={<TradersPage/>}/>} />
+                <Route exact path="/traders" component={OverviewPage} />
                 <Route path="/traders/:id" render={() => <OverviewPage content={<TraderPage/>}/>} />
                 <Route exact path="/community" render={() => <OverviewPage content={<CommunityPage/>}/>} />
+                <Route path="/community/:id" render={() => <OverviewPage content={<DiscussionPage/>}/>} />
 
                 <Route exact path="/auth/:type" component={AuthPage} />
 

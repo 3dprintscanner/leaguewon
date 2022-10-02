@@ -12,7 +12,8 @@ import HomeIcon from '@material-ui/icons/Home';
 import ForumIcon from '@material-ui/icons/Forum';
 import GroupIcon from '@material-ui/icons/Group';
 import { Link } from "./../../../util/router.js";
-
+import './../Animation.css';
+import Logo from '../../Logo';
 
 const categories = [
   {
@@ -65,6 +66,17 @@ const styles = (theme) => ({
   },
   themeBackground: {
     // backgroundColor: theme.palette.background.default
+  },
+  profit: {
+    fontFamily: "Press Start 2P",
+    color: '#b6ff00',
+    animation: 'neon4 1.5s ease-in-out infinite alternate'
+  },
+  losses: {
+    fontFamily: "Press Start 2P",
+    color: '#f19cd2',
+    animation: 'neon1 1.5s ease-in-out infinite alternate',
+    fontSize: 34
   }
 });
 
@@ -75,7 +87,8 @@ function Navigator(props) {
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
         <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
-          RankDex
+          <Logo/>
+          {/* <span className={classes.profit}>Rank</span><span className={classes.losses}>Dex</span> */}
         </ListItem>
         <ListItem className={clsx(classes.item, classes.itemCategory)}  component={Link} to="/overview" button>
           <ListItemIcon className={classes.itemIcon}>
@@ -86,7 +99,7 @@ function Navigator(props) {
               primary: classes.itemPrimary,
             }}
           >
-            Dashboard
+            Leaderboard
           </ListItemText>
         </ListItem>
         {categories.map(({ id, children }) => (

@@ -110,3 +110,26 @@ create policy "Authenticated users can read posts" on public.posts for select us
 create policy "Can insert items they own" on public.posts for insert with check ( auth.uid() = "owner" );
 create policy "Can update items they own" on public.posts for update using ( auth.uid() = "owner" );
 create policy "Can delete items they own" on public.posts for delete using ( auth.uid() = "owner" );
+
+create table public.traderstats (
+  "id" uuid primary key default default uuid_generate_v4(),
+  "start" datetime not null,
+  "end" datetime not null,
+  "portfolio_size" float8 not null,
+  "num_trades" int4 not null,
+  "profit_loss" float8 not null
+)
+
+create table public.stats_transactions(
+  "id" uuid primary key default default uuid_generate_v4(),
+  "stat_id" uuid reference public.traderstats not null,
+  "transaction_id" varchar reference public.transactions not null
+)
+
+create table public.transactions (
+  "id" varchar primary key not null,
+  "block_number" int8 not null,
+  "timestamp" datetime not null,
+  "transaction_data" json,
+
+)

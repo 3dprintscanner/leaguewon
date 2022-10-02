@@ -18,7 +18,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Section from "./Section";
 import { Link } from "./../util/router";
 import { useAuth } from "./../util/auth";
-import { useDarkMode } from "./../util/theme";
+import Logo from './Logo';
 
 const useStyles = makeStyles((theme) => ({
   logo: {
@@ -37,14 +37,11 @@ function Navbar(props) {
   const classes = useStyles();
 
   const auth = useAuth();
-  const darkMode = useDarkMode();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [menuState, setMenuState] = useState(null);
 
   // Use inverted logo if specified
   // and we are in dark mode
-  const logo =
-    props.logoInverted && darkMode.value ? props.logoInverted : props.logo;
 
   const handleOpenMenu = (event, id) => {
     // Store clicked element (to anchor the menu to)
@@ -62,7 +59,7 @@ function Navbar(props) {
         <Container disableGutters={true}>
           <Toolbar>
             <Link to="/">
-              <img src={logo} alt="Logo" className={classes.logo} />
+              <Logo/>
             </Link>
             <div className={classes.spacer} />
             <Hidden smUp={true} implementation="css">
@@ -117,9 +114,9 @@ function Navbar(props) {
                       horizontal: "center",
                     }}
                   >
-                    <MenuItem component={Link} to="/dashboard">
+                    {/* <MenuItem component={Link} to="/dashboard">
                       Dashboard
-                    </MenuItem>
+                    </MenuItem> */}
                     <MenuItem component={Link} to="/overview">
                       Overview
                     </MenuItem>
@@ -168,9 +165,9 @@ function Navbar(props) {
 
           {auth.user && (
             <>
-              <ListItem component={Link} to="/dashboard" button={true}>
-                <ListItemText>Dashboard</ListItemText>
-              </ListItem>
+            {/* <ListItem component={Link} to="/dashboard" button={true}>
+              <ListItemText>Dashboard</ListItemText>
+            </ListItem> */}
               <ListItem component={Link} to="/overview" button={true}>
                 <ListItemText>Overview</ListItemText>
               </ListItem>

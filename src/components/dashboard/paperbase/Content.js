@@ -14,8 +14,8 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
-import FaceIcon from '@material-ui/icons/Face';
 import { Link } from "./../../../util/router.js";
+import './../Animation.css';
 
 
 const styles = (theme) => ({
@@ -39,22 +39,32 @@ const styles = (theme) => ({
   contentWrapper: {
     margin: '40px 16px',
   },
+  profit: {
+    fontFamily: "Press Start 2P",
+    color: '#b6ff00',
+    animation: 'neon4 1.5s ease-in-out infinite alternate'
+  },
+  losses: {
+    fontFamily: "Press Start 2P",
+    color: '#f19cd2',
+    animation: 'neon1 1.5s ease-in-out infinite alternate'
+  },
+  title: {
+    margin: theme.spacing(2)
+  }
 });
 
-const mapItems = (items) => {
-  return (
-    <List>
-      {items.map(it => (<ListItem button component={Link} to={`/traders/${it.id}`}>
-          <ListItemAvatar>
-            <Avatar>
-              <FaceIcon />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary={it.name} secondary="Jan 7, 2014" />
-      </ListItem>))}
-    </List>
-  )
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 }
+
+
+
+
+
+
 
 function Content(props) {
   const { classes } = props;
@@ -63,8 +73,42 @@ function Content(props) {
     data: items,
   } = useUsers();
 
+  const renderPl = (profitLoss) => {
+    console.log(profitLoss)
+    if (profitLoss >= 0.0) {
+      return (
+        <Typography gutterBottom variant="h5" component="h2" className={classes.profit}>
+          {profitLoss}
+        </Typography>)
+    } else {
+      return (<Typography gutterBottom variant="h5" component="h2" className={classes.losses}>
+        {profitLoss}
+      </Typography>)
+    }
+  }
+  const mapItems = (items) => {
+    console.log(items)
+    return (
+      <List>
+        {items.map(it => mapItem(it))}
+      </List>
+    )
+  }
+
+  const mapItem = (it) => {
+    const pl = getRandomInt(-5000, 5000)
+    return (<ListItem button component={Link} to={`/traders/${it.id}?pl=${pl}`}>
+      <ListItemAvatar>
+        <Avatar src={`https://avatars.dicebear.com/api/pixel-art/${it.id}custom-seed.svg`}>
+        </Avatar>
+      </ListItemAvatar>
+      <ListItemText primary={it.name} />
+      <ListItemText primary={renderPl(pl)} />
+    </ListItem>)
+  }
   return (
     <Paper className={classes.paper}>
+      <Typography variant="h4" gutterBottom className={classes.title}>Traders</Typography>
       <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
         <Toolbar>
           <Grid container spacing={2} alignItems="center">

@@ -30,6 +30,30 @@ export function useUser(uid) {
   );
 }
 
+export function useFollowing(uid){
+  return useQuery(
+    // Unique query key: https://react-query.tanstack.com/guides/query-keys
+    ["following", {uid}],
+    // Query function that fetches data
+    () =>
+      supabase
+        .from("users")
+        .select(`
+        id,
+        followers!user_id(
+          following:following_id(
+            id,
+            name
+          )
+        )`)
+        .eq("id", uid)
+        .single()
+        .then(handle),
+    // Only call query function if we have a `uid`
+    { enabled: !!uid}
+  );
+}
+
 export function useUsers(){
   return useQuery(
     // Unique query key: https://react-query.tanstack.com/guides/query-keys
@@ -46,6 +70,21 @@ export function useUsers(){
   );
 }
 
+export function useAllPosts(){
+  return useQuery(
+    // Unique query key: https://react-query.tanstack.com/guides/query-keys
+    ["posts"],
+    // Query function that fetches data
+    () =>
+      supabase
+        .from("posts")
+        .select(`id, title, content, owner(id, name)`)
+        .then(handle),
+    // Only call query function if we have a `uid`
+    { enabled: true}
+  );
+}
+
 export function usePosts(uid){
   return useQuery(
     // Unique query key: https://react-query.tanstack.com/guides/query-keys
@@ -54,11 +93,28 @@ export function usePosts(uid){
     () =>
       supabase
         .from("posts")
-        .select(`*`)
+        .select(`title, content, owner(id, name)`)
         .eq("owner", uid)
         .then(handle),
     // Only call query function if we have a `uid`
-    { enabled: true}
+    { enabled: !!uid}
+  );
+}
+
+export function useRealUser(uid){
+  return useQuery(
+    // Unique query key: https://react-query.tanstack.com/guides/query-keys
+    ["users", {uid}],
+    // Query function that fetches data
+    () =>
+      supabase
+        .from("users")
+        .select(`*`)
+        .eq("id", uid)
+        .single()
+        .then(handle),
+    // Only call query function if we have a `uid`
+    { enabled: !!uid}
   );
 }
 
@@ -112,11 +168,60 @@ export function useItemsByOwner(owner) {
   );
 }
 
+export function useIsFollower(user, trader) {
+  return useQuery(
+    ["followers", { user, trader }],
+    () =>
+      supabase
+        .from("followers")
+        .select()
+        .eq("user_id", user)
+        .eq("following_id", trader)
+        .single()
+        .then(handle),
+    { enabled: !!user && !!trader }
+  );
+}
+
+export function usePostComments(uid){
+
+  return useQuery(
+    ["postComments", { uid }],
+    () =>
+      supabase
+        .from("posts")
+        .select('owner(name, id), title, content, comments(comment, owner(name, id))')
+        .eq("id", uid)
+        .single()
+        .then(handle),
+    { enabled: !!uid }
+  );
+}
+
 // Create a new item
 export async function createItem(data) {
   const response = await supabase.from("items").insert([data]).then(handle);
   // Invalidate and refetch queries that could have old data
   await client.invalidateQueries(["items"]);
+  return response;
+}
+
+export async function createComment (data, postId) {
+  const response = await supabase.from("comments").insert([data]).then(handle);
+  // Invalidate and refetch queries that could have old data
+  await client.invalidateQueries(["postComments", {postId}]);
+  return response;
+}
+
+export async function createFollower(data) {
+  const response = await supabase.from("followers").insert([data]).then(handle);
+  await client.invalidateQueries(["followers"]);
+  return response;
+}
+
+export async function createPost(data) {
+  const response = await supabase.from("posts").insert([data]).then(handle);
+  await client.invalidateQueries(["posts"]);
   return response;
 }
 

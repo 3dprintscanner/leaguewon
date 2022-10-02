@@ -51,38 +51,33 @@ function PricingSection(props) {
   const plans = [
     {
       id: "starter",
-      name: "Starter",
-      price: "10",
+      name: "Free",
+      price: "0",
       perks: [
-        "Lorem ipsum dolor sit amet",
-        "Consectetur adipiscing elit",
-        "Integer molestie lorem at massa",
+        "Follow up to 3 traders",
+        "View community posts",
+        "See data soon after processing",
       ],
     },
     {
       id: "pro",
-      name: "Pro",
+      name: "Standard",
       price: "20",
       perks: [
-        "Lorem ipsum dolor sit amet",
-        "Consectetur adipiscing elit",
-        "Integer molestie lorem at massa",
-        "Faucibus porta lacus fringilla vel",
-        "Aenean sit amet erat nunc",
+        "Follow and copy up to 10 traders",
+        "Full access to the knowledge and discussion base",
+        "Chances to contact and learn from the best traders",
       ],
     },
     {
       id: "business",
-      name: "Business",
-      price: "50",
+      name: "Pro",
+      price: "150",
       perks: [
-        "Lorem ipsum dolor sit amet",
-        "Consectetur adipiscing elit",
-        "Integer molestie lorem at massa",
-        "Faucibus porta lacus fringilla vel",
-        "Aenean sit amet erat nunc",
-        "Lorem ipsum dolor sit amet",
-        "Consectetur adipiscing elit",
+        "Follow and copy unlimited traders",
+        "Aggregated data at the lowest latency",
+        "Special members learning content and webinars",
+        "Beta testing of new components",
       ],
     },
   ];
@@ -110,7 +105,7 @@ function PricingSection(props) {
                     {plan.name}
                   </Typography>
                   <Box className={classes.price} mt={1}>
-                    <Typography variant="h3">${plan.price}</Typography>
+                    <Typography variant="h3">€{plan.price}</Typography>
                     <Typography variant="h4" color="textSecondary">
                       /mo
                     </Typography>
@@ -152,7 +147,7 @@ function PricingSection(props) {
                           : `/auth/signup?next=/purchase/${plan.id}`
                       }
                       variant="contained"
-                      color="primary"
+                      color="secondary"
                       size="large"
                       fullWidth={true}
                     >

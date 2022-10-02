@@ -6,20 +6,20 @@ import ClientsSection from "./../components/ClientsSection";
 import TestimonialsSection from "./../components/TestimonialsSection";
 import NewsletterSection from "./../components/NewsletterSection";
 import CtaSection from "./../components/CtaSection";
-
+import BigLogo from "./../components/BigLogo"
 function IndexPage(props) {
   return (
     <>
       <Meta />
       <HeroSection
-        bgColor="primary"
+        bgColor="default"
         size="large"
         bgImage="/trading.png"
         bgImageOpacity={0.3}
-        title="RankDEX"
+        title={<BigLogo/>}
         subtitle="Find, follow, learn and earn from the best crypto traders on the DEXes"
         buttonText="Join the Community"
-        buttonColor="default"
+        buttonColor="secondary"
         buttonPath="/pricing"
       />
       <FeaturesSection
@@ -54,19 +54,19 @@ function IndexPage(props) {
         title="Stay in the know"
         subtitle="Receive our latest articles and feature updates"
         buttonText="Subscribe"
-        buttonColor="primary"
+        buttonColor="secondary"
         inputPlaceholder="Enter your email"
         subscribedMessage="You are now subscribed!"
       />
       <CtaSection
-        bgColor="primary"
+        bgColor="default"
         size="medium"
         bgImage=""
         bgImageOpacity={1}
         title="Ready to get started?"
         subtitle=""
         buttonText="Get Started"
-        buttonColor="default"
+        buttonColor="secondary"
         buttonPath="/pricing"
       />
     </>
