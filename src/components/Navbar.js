@@ -18,12 +18,14 @@ import { makeStyles } from "@material-ui/core/styles";
 import Section from "./Section";
 import { Link } from "./../util/router";
 import { useAuth } from "./../util/auth";
-import Logo from './Logo';
+import { useDarkMode } from "./../util/theme";
+
 
 const useStyles = makeStyles((theme) => ({
   logo: {
-    height: 56,
+    height: 48,
     marginRight: theme.spacing(2),
+    padding: theme.spacing(1)
   },
   drawerList: {
     width: 250,
@@ -38,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Navbar(props) {
   const classes = useStyles();
+  const darkMode = useDarkMode();
 
   const auth = useAuth();
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -45,6 +48,11 @@ function Navbar(props) {
 
   // Use inverted logo if specified
   // and we are in dark mode
+
+   // Use inverted logo if specified
+  // and we are in dark mode
+  const logo =
+    props.logoInverted && darkMode.value ? props.logoInverted : props.logo;
 
   const handleOpenMenu = (event, id) => {
     // Store clicked element (to anchor the menu to)
@@ -61,8 +69,8 @@ function Navbar(props) {
       <AppBar position="static" color="transparent" elevation={0}>
         <Container disableGutters={true}>
           <Toolbar>
-            <Link to="/" className={classes.noLink}>
-              <Logo/>
+            <Link to="/">
+              <img src={logo} alt="Logo" className={classes.logo} />
             </Link>
             <div className={classes.spacer} />
             <Hidden smUp={true} implementation="css">
@@ -168,7 +176,7 @@ function Navbar(props) {
 
           {auth.user && (
             <>
-            {/* <ListItem component={Link} to="/dashboard" button={true}>
+              {/* <ListItem component={Link} to="/dashboard" button={true}>
               <ListItemText>Dashboard</ListItemText>
             </ListItem> */}
               <ListItem component={Link} to="/overview" button={true}>

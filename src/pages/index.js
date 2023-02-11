@@ -12,7 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   buttonGlow: {
-    animation: 'neon1 1.5s ease-in-out infinite alternate'
+    // animation: 'neon1 1.5s ease-in-out infinite alternate'
   }
   
 }));
@@ -27,11 +27,11 @@ function IndexPage(props) {
       <HeroSection
         bgColor="default"
         size="large"
-        bgImage="/trading.png"
+        bgImage="/option3.jpg"
         bgImageOpacity={0.3}
-        title={<BigLogo/>}
-        subtitle="Find, follow, learn and earn from the best crypto traders on the DEXes"
-        buttonText="Join the Community"
+        title={<img height="150" src="/logo-tournament_trans_dark-960.png"/>}
+        subtitle="Monetize your game with competitive Web3 leagues 🏆🥇🥈🥉 "
+        buttonText="Start Earning 💵"
         buttonColor="secondary"
         buttonPath="/pricing"
         buttonClass={classes.buttonGlow}

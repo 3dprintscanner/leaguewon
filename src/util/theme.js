@@ -16,7 +16,7 @@ const themeConfig = {
       type: "light",
       primary: {
         // Use hue from colors or hex
-        main: "#b9da6b",
+        main: "#7bfa94",
         // Uncomment to specify light/dark
         // shades instead of automatically
         // calculating from above value.
@@ -24,7 +24,7 @@ const themeConfig = {
         //dark: "#115293",
       },
       secondary: {
-        main: "#c465a1",
+        main: "#FF6C6C",
       },
       background: {
         // Background for <body>
@@ -44,10 +44,10 @@ const themeConfig = {
       primary: {
         // Same as in light but we could
         // adjust color hue if needed
-        main: "#b9da6b",
+        main: "#7bfa94",
       },
       secondary: {
-        main: "#c465a1",
+        main: "#FF6C6C",
       },
       background: {
         default: colors.grey["900"],

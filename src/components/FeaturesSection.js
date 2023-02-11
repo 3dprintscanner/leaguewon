@@ -33,25 +33,25 @@ function FeaturesSection(props) {
 
   const items = [
     {
-      title: "Track your favourite trader",
-      body: "Find, follow and learn from the best traders on the exchanges such as Uniswap, Kine and PancakeSwap. ",
-      image: "undraw_btc.svg",
+      title: "Turn any scoring game into a competitive league",
+      body: "Install our easy SDK and turn your scoreboard into global player rankings.",
+      image: "undraw_drone_race_-0-sim.svg",
     },
     {
-      title: "Leverage your success",
-      body: "As a trader sign your wallet address and generate a verified public profile for investors.",
-      image: "undraw_stats.svg",
+      title: "Grow revenue though user generated prize pools",
+      body: "Players purchase tokens to enter leagues which fund prize pools and earn you money.",
+      image: "undraw_bitcoin_p2p_re_1xqa.svg",
     },
     {
-      title: "Follow, analyse and learn the plays",
-      body: "Get live feeds of your favourite trades, discuss with the community and learn together.",
-      image: "undraw_share.svg",
+      title: "Engage, Retain and Optimise",
+      body: "Entice and retain new players with referral bonuses, streaks and drops backed by NFT's. Optimise your leagues with adjustable prize strategies and analytics.",
+      image: "undraw_data_re_80ws.svg",
     },
     {
-      title: "Make the leaderboard",
-      body: "Ranked leaderboards for the best traders and strategies, compete and grow together",
-      image: "undraw_moon.svg ",
-    },
+      title: "Finally go Ad-Free",
+      body: "Increase conversion by progressively substituting Ads with ticketed leagues run on Web3 blockchain technology.",
+      image: "undraw_moon_2.svg",
+    }
   ];
 
   return (

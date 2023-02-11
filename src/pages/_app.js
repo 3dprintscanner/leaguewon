@@ -33,8 +33,8 @@ function App(props) {
             <>
               <Navbar
                 color="default"
-                logo="/dexlogomid.png"
-                logoInverted="/dexlogomid.png"
+                logo="/logo-tournament_trans-dark.png"
+                logoInverted="/logo-tournament_trans-dark.png"
               />
 
               <Switch>
@@ -76,10 +76,10 @@ function App(props) {
                 size="medium"
                 bgImage=""
                 bgImageOpacity={1}
-                description="The DEX investing community"
+                description=""
                 copyright={`© ${new Date().getFullYear()} Company`}
-                logo="/dexlogomid.png"
-                logoInverted="/dexlogomid.png"
+                logo="/logo-tournament_trans-dark.png"
+                logoInverted="/logo-tournament_trans-dark.png"
                 sticky={true}
               />
             </>

@@ -12,6 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Section from "./Section";
 import { Link } from "./../util/router";
 import Logo from './Logo'
+import { useDarkMode } from "./../util/theme";
 
 const useStyles = makeStyles((theme) => ({
   sticky: {
@@ -47,6 +48,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 function Footer(props) {
   const classes = useStyles();
 
@@ -63,8 +66,8 @@ function Footer(props) {
       <Container>
         <Grid container={true} justifyContent="space-between" spacing={4}>
           <Grid item={true} xs={12} md={4}>
-            <Link to="/" className={classes.noLink}>
-              <Logo />
+            <Link to="/">
+              <img src={props.logo} alt="Logo" className={classes.brand} />
             </Link>
 
             {props.description && (
