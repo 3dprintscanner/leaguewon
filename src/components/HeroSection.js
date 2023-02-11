@@ -7,7 +7,6 @@ import SectionHeader from "./SectionHeader";
 import { Link } from "./../util/router";
 
 function HeroSection(props) {
-  console.log(props)
   return (
     <Section
       bgColor={props.bgColor}
