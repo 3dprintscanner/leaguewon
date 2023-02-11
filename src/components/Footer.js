@@ -11,8 +11,6 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import { makeStyles } from "@material-ui/core/styles";
 import Section from "./Section";
 import { Link } from "./../util/router";
-import Logo from './Logo'
-import { useDarkMode } from "./../util/theme";
 
 const useStyles = makeStyles((theme) => ({
   sticky: {
