@@ -95,8 +95,13 @@ const themeConfig = {
             },
           },
         },
+      },
+      MuiPaper: {
+        "root": {
+          backgroundColor: "#42424242"
+        }        
       }
-    },
+    }
   },
 };
 
