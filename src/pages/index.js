@@ -28,7 +28,7 @@ function IndexPage(props) {
         size="large"
         bgImage="/option3.jpg"
         bgImageOpacity={0.3}
-        title={<img height="150" alt="large logo" src="/logo-tournament_trans_dark-960.png"/>}
+        title={<img height="150" alt="large logo" src="/logo-tournament_trans_dark-960-2.png"/>}
         subtitle="Monetize your game with competitive Web3 leagues 🏆🥇🥈🥉 "
         buttonText="Start Earning 💵"
         buttonColor="secondary"

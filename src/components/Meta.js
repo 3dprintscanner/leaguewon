@@ -9,9 +9,9 @@ function Meta(props) {
   // Meta values that are the same across all pages
   const globalMeta = {
     // Site name
-    siteName: "RankDex",
+    siteName: "LeagueWON",
     // Your production domain (example: https://myapp.com)
-    domain: "rankdex.vercel.app",
+    domain: "leaguewon.vercel.app",
     // Your Twitter handle (example: @divjoy)
     twitterHandle: "",
   };
@@ -19,9 +19,9 @@ function Meta(props) {
   // Default meta values for current page (override with props)
   const defaultPageMeta = {
     // Page title
-    title: "RankDEX",
+    title: "LeagueWON",
     // Page description
-    description: "The DEX investing community",
+    description: "Web3 powered game leagues",
     // Social share image (create this file in /public/images/)
     image: "/images/social.png",
     // Page type (see https://ogp.me/#types)

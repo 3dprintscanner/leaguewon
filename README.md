@@ -20,7 +20,7 @@ Chiefly:
  - REACT_APP_SUPABASE_PUBLIC_KEY
  - REACT_APP_SUPABASE_URL
 
-Demo [here](https://rankdex.vercel.app/)
+Demo [here](https://leaguewon.vercel.app/)
 
 Code for the backend lives [here](https://github.com/robinbernon/rustfi)
 

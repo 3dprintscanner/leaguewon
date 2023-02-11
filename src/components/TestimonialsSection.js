@@ -25,7 +25,7 @@ function TestimonialsSection(props) {
 
   const items = [
     {
-      avatar: "marc.webp",
+      avatar: "leaguewon_basic.png",
       name: "Marc",
       testimonial:
         "Great potential, the visibility of other traders is great together with supporting the learning of users",
