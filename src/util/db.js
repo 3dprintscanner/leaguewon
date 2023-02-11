@@ -255,10 +255,25 @@ export async function deleteItem(id) {
   return response;
 }
 
+export function useScoreBoard(leagueId){
+  return useQuery(
+    ["scoreBoard", { leagueId }],
+    () =>
+      supabase
+        .from("players_scores")
+        .select("score, players(id, name)")
+        .eq("league_id", leagueId)
+        .order("score", { ascending: false })
+        .then(handle),
+    { enabled: !!leagueId }
+  );
+}
+
 /**** HELPERS ****/
 
 // Get response data or throw error if there is one
 function handle(response) {
+  console.log(response)
   if (response.error) throw response.error;
   return response.data;
 }

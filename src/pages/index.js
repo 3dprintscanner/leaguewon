@@ -51,14 +51,14 @@ function IndexPage(props) {
         title="You're in good company"
         subtitle=""
       /> */}
-      <TestimonialsSection
+      {/* <TestimonialsSection
         bgColor="default"
         size="medium"
         bgImage=""
         bgImageOpacity={1}
         title="Here's what people are saying"
         subtitle=""
-      />
+      /> */}
       <NewsletterSection
         bgColor="light"
         size="medium"

@@ -16,7 +16,7 @@ import PurchasePage from "./purchase";
 import DiscussionPage from "./../components/DiscussionPage";
 import NotFoundPage from "./404";
 import Footer from "./../components/Footer";
-import Leaderboard from "./../components/dashboard/paperbase/Leaderboard";
+import Scoreboard from "./../components/dashboard/paperbase/Scoreboard";
 import "./../util/analytics";
 import Chat from "./../components/Chat";
 import { AuthProvider } from "./../util/auth";
@@ -49,7 +49,7 @@ function App(props) {
                 <Route exact path="/pricing" component={PricingPage} />
 
 
-                <Route exact path="/overview" render={() => <OverviewPage content={<Leaderboard/>}/>} />
+                <Route exact path="/scoreboard" render={() => <OverviewPage content={<Scoreboard/>}/>} />
 
                 <Route exact path="/traders" component={OverviewPage} />
                 <Route path="/traders/:id" render={() => <OverviewPage content={<TraderPage/>}/>} />

@@ -14,7 +14,7 @@ import { getFriendlyPlanId } from "./prices";
 import analytics from "./analytics";
 
 // Whether to merge extra user data from database into `auth.user`
-const MERGE_DB_USER = true;
+const MERGE_DB_USER = false;
 
 // Whether to connect analytics session to `user.uid`
 const ANALYTICS_IDENTIFY = true;
@@ -202,7 +202,7 @@ function useFormatUser(user) {
     const providers = [provider];
 
     // Get customer data
-    const customer = (user.customers && user.customers[0]) || {};
+    // const customer = (user.customers && user.customers[0]) || {};
 
     return {
       // Include full auth user data
@@ -212,15 +212,15 @@ function useFormatUser(user) {
       // User's auth providers
       providers: providers,
       // Add customer data
-      ...customer,
-      // Add `planId` (starter, pro, etc) based on Stripe Price ID
-      ...(customer.stripePriceId && {
-        planId: getFriendlyPlanId(customer.stripePriceId),
-      }),
-      // Add `planIsActive: true` if subscription status is active or trialing
-      planIsActive: ["active", "trialing"].includes(
-        customer.stripeSubscriptionStatus
-      ),
+      // ...customer,
+      // // Add `planId` (starter, pro, etc) based on Stripe Price ID
+      // ...(customer.stripePriceId && {
+      //   planId: getFriendlyPlanId(customer.stripePriceId),
+      // }),
+      // // Add `planIsActive: true` if subscription status is active or trialing
+      // planIsActive: ["active", "trialing"].includes(
+      //   customer.stripeSubscriptionStatus
+      // ),
     };
   }, [user]);
 }

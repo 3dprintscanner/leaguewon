@@ -19,8 +19,8 @@ const categories = [
   {
     id: 'Explore',
     children: [
-      { id: 'Traders', icon: <GroupIcon />, to: '/traders' },
-      { id: 'Community', icon: <ForumIcon />, to: '/community' },
+      { id: 'Players', icon: <GroupIcon />, to: '/players' },
+      { id: 'Leagues', icon: <ForumIcon />, to: '/community' },
     ],
   }
 ];
@@ -29,9 +29,6 @@ const styles = (theme) => ({
   categoryHeader: {
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2),
-  },
-  categoryHeaderPrimary: {
-    // color: theme.palette.common.white,
   },
   item: {
     paddingTop: 1,
@@ -64,20 +61,6 @@ const styles = (theme) => ({
   },
   divider: {
     marginTop: theme.spacing(2),
-  },
-  themeBackground: {
-    // backgroundColor: theme.palette.background.default
-  },
-  profit: {
-    fontFamily: "Press Start 2P",
-    color: '#b6ff00',
-    animation: 'neon4 1.5s ease-in-out infinite alternate'
-  },
-  losses: {
-    fontFamily: "Press Start 2P",
-    color: '#f19cd2',
-    animation: 'neon1 1.5s ease-in-out infinite alternate',
-    fontSize: 34
   }
 });
 
@@ -87,29 +70,19 @@ function Navigator(props) {
   return (
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
-        <ListItem className={clsx(classes.firebase, classes.item, classes.itemCategory)}>
-          <Logo/>
-          {/* <span className={classes.profit}>Rank</span><span className={classes.losses}>Dex</span> */}
-        </ListItem>
         <ListItem className={clsx(classes.item, classes.itemCategory)}  component={Link} to="/overview" button>
           <ListItemIcon className={classes.itemIcon}>
             <HomeIcon />
           </ListItemIcon>
           <ListItemText
-            classes={{
-              primary: classes.itemPrimary,
-            }}
           >
-            Leaderboard
+            Scoreboard
           </ListItemText>
         </ListItem>
         {categories.map(({ id, children }) => (
           <React.Fragment key={id}>
             <ListItem className={classes.categoryHeader}>
               <ListItemText
-                classes={{
-                  primary: classes.categoryHeaderPrimary,
-                }}
               >
                 {id}
               </ListItemText>
@@ -124,9 +97,6 @@ function Navigator(props) {
                 >
                   <ListItemIcon className={classes.itemIcon}>{icon}</ListItemIcon>
                   <ListItemText
-                    classes={{
-                      primary: classes.itemPrimary,
-                    }}
                   >
                     {childId}
                   </ListItemText>
