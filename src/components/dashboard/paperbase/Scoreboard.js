@@ -8,7 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
-import { useScoreBoard } from "./../../../util/db";
+import { useScoreBoard, useMetaData, useLeagueTicket } from "./../../../util/db";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -50,24 +50,13 @@ const styles = (theme) => ({
         color: '#f19cd2',
         animation: 'neon1 1.5s ease-in-out infinite alternate'
     },
-    leadNumber:{
+    leadNumber: {
         paddingRight: theme.spacing(2)
     },
     title: {
         margin: theme.spacing(2)
     }
 });
-
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
-}
-function getRandomPercent(min, max) {
-    min = -100;
-    max = 100;
-    return (Math.random() * (max - min) + min).toFixed(2); // The maximum is exclusive and the minimum is inclusive
-}
 
 function Leaderboard(props) {
     const { classes } = props;
@@ -77,56 +66,35 @@ function Leaderboard(props) {
         data: items,
     } = useScoreBoard(1);
 
-    const renderPl = (profitLoss) => {
-        console.log(profitLoss)
-        if (profitLoss >= 0.0) {
-            return (
-                <Typography gutterBottom variant="h5" component="h2" className={classes.profit}>
-                    {profitLoss}
-                </Typography>)
-        } else {
-            return (<Typography gutterBottom variant="h5" component="h2" className={classes.losses}>
-                {profitLoss}
-            </Typography>)
-        }
-    }
+    const metaItems = useMetaData(items)
 
-    const renderPlPc = (profitLoss) => {
-        console.log(profitLoss)
-        if (profitLoss >= 0.0) {
-            return (
-                <Typography gutterBottom variant="h5" component="h2" className={classes.profit}>
-                    {profitLoss}%
-                </Typography>)
-        } else {
-            return (<Typography gutterBottom variant="h5" component="h2" className={classes.losses}>
-                {profitLoss}%
-            </Typography>)
-        }
-    }
+    console.log(metaItems, "metaItems")
 
 
     const mapItems = (items) => {
-        console.log(items)
         return (
             <List>
-                {items.map((it, idx) => mapItem(it, idx))}
+                {items && items.filter(i => i.status == 'success').map((it, idx) => CreateItem(it.data, idx))}
             </List>
         )
     }
 
-    const mapItem = (it, idx) => {
+    const CreateItem = (it, idx) => {
         console.log(it, idx)
-        const { id, name } = it.players
         const score = it.score
-        return (<ListItem button component={Link} to={`/players/${id}`}>
+        return (<ListItem button component={Link} to={`/players/${it.player_id}`}>
             <Typography className={classes.leadNumber} variant='h5' display='inline'>{idx + 1}.</Typography>
             <ListItemAvatar>
-                <Avatar src={`https://avatars.dicebear.com/api/pixel-art/${id}custom-seed.svg`}>
+                <Avatar src={`https://avatars.dicebear.com/api/pixel-art/${it.player_id}custom-seed.svg`}>
                 </Avatar>
             </ListItemAvatar>
-            <ListItemText primary={name} />
+            <ListItemText primary={it.player_name} />
             <ListItemText primary={score} />
+            <ListItemAvatar>
+                <Avatar src={it.image_url}>
+                </Avatar>
+            </ListItemAvatar>
+
         </ListItem>)
     }
     return (
@@ -153,7 +121,7 @@ function Leaderboard(props) {
                     </Grid>
                 </Toolbar>
             </AppBar>
-            {(items && mapItems(items)) ?? (<div className={classes.contentWrapper}>
+            {(metaItems && mapItems(metaItems)) ?? (<div className={classes.contentWrapper}>
                 <Typography color="textSecondary" align="center">
                     No users match this query
                 </Typography>

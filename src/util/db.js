@@ -1,5 +1,7 @@
+import { Store } from "@material-ui/icons";
 import {
   useQuery,
+  useQueries,
   QueryClient,
   QueryClientProvider as QueryClientProviderBase,
 } from "react-query";
@@ -260,13 +262,46 @@ export function useScoreBoard(leagueId){
     ["scoreBoard", { leagueId }],
     () =>
       supabase
-        .from("players_scores")
-        .select("score, players(id, name)")
+        .from("score_tokens")
+        .select("*")
         .eq("league_id", leagueId)
         .order("score", { ascending: false })
         .then(handle),
     { enabled: !!leagueId }
   );
+}
+
+export function useLeagueTicket(playerId, leagueId){
+  return useQuery(
+    ["playerLeagueTicket", { playerId, leagueId }],
+    () =>
+      supabase
+        .from("leagues_tickets")
+        .select("id, token_identifier")
+        .eq("league_id", leagueId)
+        .eq("player_id", playerId)
+        .single()
+        .then(handle),
+    { enabled: !!leagueId && !! playerId }
+  );
+}
+
+
+async function fetchData(score){
+  const resp = await fetch(`https://api.sandbox.x.immutable.com/v1/assets/${score.token_identifier}`);
+  const json = await resp.json()
+  return {...score, ...json }
+}
+export function useMetaData(scores){
+  return useQueries(
+    (scores || []).filter(s => s.token_identifier).map(score => {
+      return {
+        queryKey: ["metadata", score.player_id, score.league_id],
+        queryFn: async () => await fetchData(score)
+      }
+    })
+  )
+    // return fetch(`https://api.sandbox.x.immutable.com/v1/assets/${identifier}`).then(resp => resp.json())
 }
 
 /**** HELPERS ****/
