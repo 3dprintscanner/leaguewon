@@ -125,14 +125,13 @@ function Leaderboard(props) {
                 <Avatar src={`https://avatars.dicebear.com/api/pixel-art/${id}custom-seed.svg`}>
                 </Avatar>
             </ListItemAvatar>
-            <ListItemText primary={score} />
             <ListItemText primary={name} />
-
+            <ListItemText primary={score} />
         </ListItem>)
     }
     return (
         <Paper className={classes.paper}>
-            <Typography variant="h4" gutterBottom className={classes.title}>Leaderboard</Typography>
+            <Typography variant="h4" gutterBottom className={classes.title}>Scoreboard</Typography>
 
             <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
                 <Toolbar>
