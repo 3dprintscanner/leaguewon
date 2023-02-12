@@ -1,0 +1,5 @@
+{
+    "routes": [
+      { "src": "/api/metadata/(?<leagueid>[^/]*)/(?<id>[^/]*)", "dest": "/api/metadata?id=$id&leagueid=$leagueid" }
+    ]
+  }

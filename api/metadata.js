@@ -1,10 +1,10 @@
 export default (req, res) => {
 
 
-    const metadataID = req.query.id;
-
+    const id = req.query.id;
+    const league = req.query && req.query.leagueid
     const respLookup = {
-        1 :{ 
+        1 : { 
             name: "Golden Ticket",
             description: "Golden ticket to the Froggerinos game league",
             image_url: "https://leaguewon.vercel.app/leaguewon_gold.png",
@@ -41,8 +41,19 @@ export default (req, res) => {
             "Tier": 'Basic' 
         }
     }
+    let respToSend = null;
+    if (league == 1){
+        if(id <= 5){
+            respToSend = respLookup[1]
+        }else if(id >=6 && id <= 20){
+            respToSend = respLookup[2]
+        }else if(id >=21 && id <= 40){
+            respToSend = respLookup[3]
+        }else{
+            respToSend = respLookup[4]
+        }
+    }
 
-    const respToSend = respLookup[metadataID]
 
     res.json(respToSend)
 
