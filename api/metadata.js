@@ -92,7 +92,7 @@ export default (req, res) => {
             respToSend = respLookup2[4]
         }
     }
-    if (league == 2119){
+    if (league == 2130){
         if(id <= 5){
             respToSend = respLookup[1]
         }else if(id >=6 && id <= 20){
