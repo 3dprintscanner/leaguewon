@@ -116,7 +116,7 @@ function Footer(props) {
                     button={true}
                     className={classes.listItem}
                   >
-                    <a href="https://github.com/3dprintscanner/rankdex" style={{textDecoration: 'none', color: 'unset'}}>
+                    <a href="https://github.com/3dprintscanner/leaguewon" style={{textDecoration: 'none', color: 'unset'}}>
                       <ListItemText>GitHub</ListItemText>
                     </a>
                   </ListItem>

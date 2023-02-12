@@ -14,7 +14,6 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
-import { Link } from "./../../../util/router.js";
 import './../Animation.css';
 import { useAuth } from "./../../../util/auth";
 import Box from "@material-ui/core/Box";
@@ -137,7 +136,6 @@ function Leaderboard(props) {
                                     disableUnderline: true,
                                     className: classes.searchInput,
                                 }}
-                            // onChange={handleChange}
                             />
                         </Grid>
                     </Grid>
