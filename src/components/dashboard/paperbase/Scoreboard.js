@@ -82,7 +82,7 @@ function Leaderboard(props) {
     const CreateItem = (it, idx) => {
         console.log(it, idx)
         const score = it.score
-        return (<ListItem button component={Link} to={`/players/${it.player_id}`}>
+        return (<ListItem button>
             <Typography className={classes.leadNumber} variant='h5' display='inline'>{idx + 1}.</Typography>
             <ListItemAvatar>
                 <Avatar src={`https://avatars.dicebear.com/api/pixel-art/${it.player_id}custom-seed.svg`}>
@@ -91,8 +91,10 @@ function Leaderboard(props) {
             <ListItemText primary={it.player_name} />
             <ListItemText primary={score} />
             <ListItemAvatar>
-                <Avatar src={it.image_url}>
-                </Avatar>
+                <a href={`https://market.sandbox.immutable.com/inventory/assets/${it.token_identifier}`}>
+                    <Avatar src={it.image_url}>
+                    </Avatar>
+                </a>
             </ListItemAvatar>
 
         </ListItem>)

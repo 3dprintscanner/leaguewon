@@ -128,8 +128,8 @@ function Navbar(props) {
                     {/* <MenuItem component={Link} to="/dashboard">
                       Dashboard
                     </MenuItem> */}
-                    <MenuItem component={Link} to="/games">
-                      Games
+                    <MenuItem component={Link} to="/scoreboard">
+                      Scoreboard
                     </MenuItem>
                     <MenuItem component={Link} to="/leagues">
                       Leagues
