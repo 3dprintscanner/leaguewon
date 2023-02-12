@@ -17,6 +17,7 @@ import Avatar from "@material-ui/core/Avatar";
 import { Link } from "./../../../util/router.js";
 import './../Animation.css';
 import { useAuth } from "./../../../util/auth";
+import Box from "@material-ui/core/Box";
 
 
 const styles = (theme) => ({
@@ -58,6 +59,23 @@ const styles = (theme) => ({
     }
 });
 
+function getAvatar(meta) {
+    if (!meta || meta.length == 0) {
+        return <></>
+    } else {
+        console.log(meta)
+        return <a href={`https://market.sandbox.immutable.com/collections/${meta[0].data.token_address}`}><Avatar src={meta[0].data.collection.icon_url} style={{marginRight: 16}} /></a>
+    }
+}
+function getGameName(meta){
+    if (!meta || meta.length == 0) {
+        return <></>
+    } else {
+        console.log(meta)
+        return meta[0].data.collection.name
+    }
+}
+
 function Leaderboard(props) {
     const { classes } = props;
     const auth = useAuth();
@@ -89,7 +107,7 @@ function Leaderboard(props) {
                 </Avatar>
             </ListItemAvatar>
             <ListItemText primary={it.player_name} />
-            <ListItemText primary={score} />
+            <ListItemText primary={<strong>{score}</strong>} style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: 16 }} />
             <ListItemAvatar>
                 <a href={`https://market.sandbox.immutable.com/inventory/assets/${it.token_identifier}`}>
                     <Avatar src={it.image_url}>
@@ -101,8 +119,10 @@ function Leaderboard(props) {
     }
     return (
         <Paper className={classes.paper}>
-            <Typography variant="h4" gutterBottom className={classes.title}>Scoreboard</Typography>
-
+            <Box display="flex" alignItems={"center"} justifyContent="space-between">
+                <Typography variant="h4" gutterBottom className={classes.title}>Scoreboard for {getGameName(metaItems.filter(i => i.status == 'success'))}</Typography>
+                {getAvatar(metaItems.filter(i => i.status == 'success'))}
+            </Box>
             <AppBar className={classes.searchBar} position="static" color="default" elevation={0}>
                 <Toolbar>
                     <Grid container spacing={2} alignItems="center">

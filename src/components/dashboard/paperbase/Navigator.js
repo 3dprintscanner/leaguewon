@@ -70,7 +70,7 @@ function Navigator(props) {
   return (
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
-        <ListItem className={clsx(classes.item, classes.itemCategory)}  component={Link} to="/overview" button>
+        <ListItem className={clsx(classes.item, classes.itemCategory)}  component={Link} to="/scoreboard" button>
           <ListItemIcon className={classes.itemIcon}>
             <HomeIcon />
           </ListItemIcon>
